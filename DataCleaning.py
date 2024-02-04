@@ -9,8 +9,8 @@ races_data = pd.read_csv('races_data.csv', delimiter=',', encoding='latin-1')
 runs_data = pd.read_csv('runs.csv', delimiter=',', encoding='latin-1')
 
 #convert each entry to True if null, False otherwise
-# races_data_null = races_data.isnull()
-# runs_data_null = runs_data.isnull()
+races_data_null = races_data.isnull()
+runs_data_null = runs_data.isnull()
 #print(races_data_null.head())
 
 #now plot to visualize which columns are mostly null
@@ -29,9 +29,9 @@ races_columns_drop = ['sec_time5','sec_time6','sec_time7',
 races_data.drop(columns=races_columns_drop, inplace=True)
 runs_columns_drop = ['position_sec5','position_sec6',
     'behind_sec5', 'behind_sec6', 'time5', 'time6']
-runs_data.drop(columns=runs_columns_drop, inplace=True)
-# runs_data_null = runs_data.isnull()
-# counts = runs_data_null.apply(pd.value_counts)
+# runs_data.drop(columns=runs_columns_drop, inplace=True)
+# races_data_null = races_data.isnull()
+# counts = races_data_null.apply(pd.value_counts)
 # counts.T.plot(kind='bar', stacked=True)
 # plt.show()
 
@@ -39,7 +39,7 @@ runs_data.drop(columns=runs_columns_drop, inplace=True)
 races_data.drop(columns=['date', 'win_combination1', 'win_dividend1'], inplace=True)
 runs_data.drop(columns=['result', 'lengths_behind'], inplace=True)
 race_drop = ['horse_ratings', 'sec_time1', 'sec_time2', 'sec_time3', 'sec_time4', 'time1','time2', 'time3', 'time4',
-    'place_dividend1','place_dividend2','place_dividend3']
+    'place_dividend1','place_dividend2','place_dividend3', 'place_combination3']
 races_data.drop(columns=race_drop, inplace=True)
 runs_drop = ['place_odds', 'position_sec1','position_sec2','position_sec3','position_sec4','behind_sec1',
     'behind_sec2','behind_sec3','behind_sec4','time1','time2','time3','time4']
