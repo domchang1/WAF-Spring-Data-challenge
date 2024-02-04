@@ -23,3 +23,8 @@ def convert_horse_type(type):
 
 def convert_horse_gear(type):
     return type.count('/')
+
+def convert_prizes(prize):
+    if prize != prize:
+        return 0
+    return int(prize)

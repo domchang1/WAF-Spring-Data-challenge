@@ -38,10 +38,10 @@ runs_data.drop(columns=runs_columns_drop, inplace=True)
 #drop the columns which are redundant/make no sense/trivial/unpredictive
 races_data.drop(columns=['date', 'win_combination1', 'win_dividend1'], inplace=True)
 runs_data.drop(columns=['result', 'lengths_behind'], inplace=True)
-race_drop = ['sec_time1', 'sec_time2', 'sec_time3', 'sec_time4', 'time1','time2', 'time3', 'time4',
+race_drop = ['horse_ratings', 'sec_time1', 'sec_time2', 'sec_time3', 'sec_time4', 'time1','time2', 'time3', 'time4',
     'place_dividend1','place_dividend2','place_dividend3']
 races_data.drop(columns=race_drop, inplace=True)
-runs_drop = ['position_sec1','position_sec2','position_sec3','position_sec4','behind_sec1',
+runs_drop = ['place_odds', 'position_sec1','position_sec2','position_sec3','position_sec4','behind_sec1',
     'behind_sec2','behind_sec3','behind_sec4','time1','time2','time3','time4']
 runs_data.drop(columns=runs_drop, inplace=True)
 
@@ -69,6 +69,8 @@ runs_data['horse_type'] = runs_data['horse_type'].apply(CDF.convert_horse_type)
 
 # print(runs_data['horse_gear'].unique())
 runs_data['horse_gear'] = runs_data['horse_gear'].apply(CDF.convert_horse_gear)
+
+races_data['prize'] = races_data['prize'].apply(CDF.convert_prizes)
 
 #Output cleaned data to csvs
 races_data.to_csv('new_races_data.csv')
