@@ -14,13 +14,16 @@ runs_data_null = runs_data.isnull()
 #print(races_data_null.head())
 
 #now plot to visualize which columns are mostly null
-
-# counts = races_data_null.apply(pd.value_counts)
-# counts.T.plot(kind='bar', stacked=True)
-# plt.show()
-# counts = runs_data_null.apply(pd.value_counts)
-# counts.T.plot(kind='bar', stacked=True)
-# plt.show()
+counts = races_data_null.apply(pd.value_counts)
+counts.T.plot(kind='bar', stacked=True)
+plt.title('Races Input Features')
+plt.tight_layout()
+plt.show()
+counts = runs_data_null.apply(pd.value_counts)
+counts.T.plot(kind='bar', stacked=True)
+plt.title('Runs Input Features')
+plt.tight_layout()
+plt.show()
 
 #drop almost completely to completely null columns
 races_columns_drop = ['sec_time5','sec_time6','sec_time7',
@@ -30,10 +33,10 @@ races_data.drop(columns=races_columns_drop, inplace=True)
 runs_columns_drop = ['position_sec5','position_sec6',
     'behind_sec5', 'behind_sec6', 'time5', 'time6']
 runs_data.drop(columns=runs_columns_drop, inplace=True)
-# races_data_null = races_data.isnull()
-# counts = races_data_null.apply(pd.value_counts)
-# counts.T.plot(kind='bar', stacked=True)
-# plt.show()
+races_data_null = races_data.isnull()
+counts = races_data_null.apply(pd.value_counts)
+counts.T.plot(kind='bar', stacked=True)
+plt.show()
 
 #drop the columns which are redundant/make no sense/trivial/unpredictive
 races_data.drop(columns=['date', 'win_combination1', 'win_dividend1'], inplace=True)
@@ -46,8 +49,8 @@ runs_drop = ['place_odds', 'position_sec1','position_sec2','position_sec3','posi
 runs_data.drop(columns=runs_drop, inplace=True)
 
 #print std to test to see how much categories are spread out
-# print(runs_data['horse_age'].std())
-# print(runs_data['horse_rating'].std())
+print(runs_data['horse_age'].std())
+print(runs_data['horse_rating'].std())
 
 #convert nonnumerical data to numerical
 

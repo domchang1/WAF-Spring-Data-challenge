@@ -9,7 +9,8 @@ from sklearn.ensemble import RandomForestRegressor
 #Read in dataset
 dataset = pd.read_csv('combined_data.csv', delimiter=',', encoding='latin-1')
 
-#Show correlations - none except distance and final_time (which means very predictive)
+#Show correlations - not much except distance and final_time (which means very predictive)
+    #Too many numbers to see well
 # correlations = dataset.corr(numeric_only = True)
 # sns.clustermap(correlations, cmap='coolwarm', annot=True)
 # plt.show()
@@ -28,6 +29,7 @@ predictions = model.predict(test_inputs)
 
 #Show results using scatter plot
 plt.scatter(predictions, test_labels)
+plt.title('Model Predicting Horse Finish Time')
 plt.xlabel('Predicted Finish Time')
 plt.ylabel('Actual Finish Time')
 plt.show()
