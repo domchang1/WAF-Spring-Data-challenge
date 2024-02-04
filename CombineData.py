@@ -14,5 +14,6 @@ for index, row in runs_data.iterrows():
         race = races_data.loc[races_data['race_id'] == id]
         runs_data.at[index, col_name] = int(race[col_name].iloc[0])
 
+
 runs_data.to_csv('combined_data.csv')
 

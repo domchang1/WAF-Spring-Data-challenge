@@ -29,7 +29,7 @@ races_columns_drop = ['sec_time5','sec_time6','sec_time7',
 races_data.drop(columns=races_columns_drop, inplace=True)
 runs_columns_drop = ['position_sec5','position_sec6',
     'behind_sec5', 'behind_sec6', 'time5', 'time6']
-# runs_data.drop(columns=runs_columns_drop, inplace=True)
+runs_data.drop(columns=runs_columns_drop, inplace=True)
 # races_data_null = races_data.isnull()
 # counts = races_data_null.apply(pd.value_counts)
 # counts.T.plot(kind='bar', stacked=True)
