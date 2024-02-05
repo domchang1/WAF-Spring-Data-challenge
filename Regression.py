@@ -9,6 +9,9 @@ from sklearn.ensemble import RandomForestRegressor
 #Read in dataset
 dataset = pd.read_csv('combined_data.csv', delimiter=',', encoding='latin-1')
 
+#For winners only
+dataset = dataset.loc[dataset['won'] == 1]
+
 #Show correlations - not much except distance and final_time (which means very predictive)
     #Too many numbers to see well
 # correlations = dataset.corr(numeric_only = True)
