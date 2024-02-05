@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 
 #Read in dataset
-dataset = pd.read_csv('combined_data.csv', delimiter=',', encoding='latin-1')
+dataset = pd.read_csv('data/combined_data.csv', delimiter=',', encoding='latin-1')
 
 #For winners only
 dataset = dataset.loc[dataset['won'] == 1]

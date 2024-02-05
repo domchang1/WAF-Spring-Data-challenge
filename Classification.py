@@ -7,7 +7,7 @@ from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.ensemble import RandomForestClassifier
 
 #read in data
-dataset = pd.read_csv('combined_data.csv', delimiter=',', encoding='latin-1')
+dataset = pd.read_csv('data/combined_data.csv', delimiter=',', encoding='latin-1')
 
 #separate into inputs and outputs, remove results from inputs
 labels = (dataset[['won']]).values.tolist()

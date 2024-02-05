@@ -1,8 +1,8 @@
 import pandas as pd
 
 #Read in both data
-races_data = pd.read_csv('new_races_data.csv', delimiter=',', encoding='latin-1')
-runs_data = pd.read_csv('new_runs_data.csv', delimiter=',', encoding='latin-1')
+races_data = pd.read_csv('data/new_races_data.csv', delimiter=',', encoding='latin-1')
+runs_data = pd.read_csv('data/new_runs_data.csv', delimiter=',', encoding='latin-1')
 
 #Add race columns to runs data
 races_columns = list(races_data.columns)[2:]
@@ -17,4 +17,4 @@ for index, row in runs_data.iterrows():
         runs_data.at[index, col_name] = int(race[col_name].iloc[0])
 
 #Write to csv
-runs_data.to_csv('combined_data.csv')
+runs_data.to_csv('data/combined_data.csv')

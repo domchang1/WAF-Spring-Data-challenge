@@ -5,8 +5,8 @@ import seaborn as sns
 import ConvertingDataFunctions as CDF
 
 #read in data
-races_data = pd.read_csv('races_data.csv', delimiter=',', encoding='latin-1')
-runs_data = pd.read_csv('runs.csv', delimiter=',', encoding='latin-1')
+races_data = pd.read_csv('data/races_data.csv', delimiter=',', encoding='latin-1')
+runs_data = pd.read_csv('data/runs.csv', delimiter=',', encoding='latin-1')
 
 #convert each entry to True if null, False otherwise
 races_data_null = races_data.isnull()
@@ -76,5 +76,5 @@ runs_data['horse_gear'] = runs_data['horse_gear'].apply(CDF.convert_horse_gear)
 races_data['prize'] = races_data['prize'].apply(CDF.convert_prizes)
 
 #Output cleaned data to csvs
-races_data.to_csv('new_races_data.csv')
-runs_data.to_csv('new_runs_data.csv')
+races_data.to_csv('data/new_races_data.csv')
+runs_data.to_csv('data/new_runs_data.csv')
