@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.ensemble import RandomForestClassifier
+from imblearn.over_sampling import RandomOverSampler
 
 #read in data
 dataset = pd.read_csv('data/combined_data.csv', delimiter=',', encoding='latin-1')
@@ -14,8 +15,12 @@ labels = (dataset[['won']]).values.tolist()
 inputs = dataset.drop(columns=['Unnamed: 0', 'won', 'place_combination1', 'place_combination2'])
 labels = np.array(labels).squeeze()
 
+#oversample minority class so balanced
+ros = RandomOverSampler(random_state=0)
+inputs, labels = ros.fit_resample(inputs, labels)
+
 #split into 80-20 train test
-train_inputs, test_inputs, train_labels, test_labels = train_test_split(inputs, labels, test_size=0.2)
+train_inputs, test_inputs, train_labels, test_labels = train_test_split(inputs, labels, test_size=0.2, random_state=42)
 
 #create, train, and predict using model
 model = RandomForestClassifier().fit(train_inputs, train_labels)
